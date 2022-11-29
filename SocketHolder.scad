@@ -1,23 +1,11 @@
 borderTop = 1.5;
 borderSides=.8;
 offset = 1;
-Thinner = 8;
+Thinner = 5.5;
 slantOffset =2.1;
-
-/*socketList = [
-[3,0870],
-[3,0870],
-[3,0880],
-[3,0946],
-[3,1025],
-[3,1100],    //1/2 drive     13/16 inch
-[3,1175],  //1/2 drive     7/8 inch
-[3,1255],  //1/2 drive     15/16 inch
-[3,1333] //1/2 drive     1 inch
-];
-*/
-
-socketList = [
+oversize=0.1;
+/*
+socketList = [ //1/2 inch drive deep sockets Quinn set Imperial
 [76.2,22.098],//[3,0.870],
 [76.2,22.098],//[3,0.870],
 [76.2,22.352],//[3,0.88],
@@ -28,12 +16,20 @@ socketList = [
 //[76.2,31.877],//[3,1.255],  //1/2 drive     15/16 inch
 //[76.2,33.8582],//[3,1.333] //1/2 drive     1 inch
 ];
-/*
-socketList = [
-[77,26],
-[77,26]
-];
 */
+
+socketList = [ //3/8 inch drive deep sockets Quinn set Imperial
+[62.83,17.00],
+[62.83,17.00],
+[62.83,17.90],
+[62.83,19.88],
+[62.83,21.80],
+//[62.83,23.90],
+//[62.83,25.90],
+//[62.83,27.81],
+//[62.83,29.80]
+];
+
 inch = false;
 function inchToMM(x) = x*25.4;
 
@@ -89,19 +85,18 @@ rotate([-90,0,0])
     }
 }
 translate([borderSides,borderTop,MaxThickness-(Thinner+5)])
-            {
+{
 for(a=[0:4])
     {
     rotate([-80,0,0])
-{
-translate([0,-a,0])
         {
-
-    Sockets(socketList, false);
-    }
-}
-}
-}
+            translate([0,-a,0])
+            {
+                Sockets(socketList, false);
+                }
+            }
+         }
+     }
 }
 
 
