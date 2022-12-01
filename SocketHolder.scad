@@ -1,34 +1,105 @@
 borderTop = 1.5;
 borderSides=.8;
 offset = 1;
-Thinner = 5.5;
+Thinner = 10;
 slantOffset =2.1;
 oversize=0.1;
-/*
-socketList = [ //1/2 inch drive deep sockets Quinn set Imperial
-[76.2,22.098],//[3,0.870],
-[76.2,22.098],//[3,0.870],
-[76.2,22.352],//[3,0.88],
-[76.2,24.0284],//[3,0.946],
-[76.2,26.035],//[3,1.025],
-//[76.2,27.94],//[3,1.1],    //1/2 drive     13/16 inch
-//[76.2,29.845],//[3,1.175],  //1/2 drive     7/8 inch
-//[76.2,31.877],//[3,1.255],  //1/2 drive     15/16 inch
-//[76.2,33.8582],//[3,1.333] //1/2 drive     1 inch
+
+/*socketList = [ //1/2 inch drive deep sockets Quinn set Imperial
+[76.2,22.098],
+[76.2,22.098],
+[76.2,22.352],
+[76.2,24.0284],
+[76.2,26.035],
 ];
 */
+socketList = [
+[76.2,27.94],
+[76.2,29.845],
+[76.2,31.877],
+[76.2,33.8582],
+];
 
+/*
 socketList = [ //3/8 inch drive deep sockets Quinn set Imperial
 [62.83,17.00],
 [62.83,17.00],
 [62.83,17.90],
 [62.83,19.88],
 [62.83,21.80],
-//[62.83,23.90],
-//[62.83,25.90],
-//[62.83,27.81],
-//[62.83,29.80]
 ];
+/*
+socketList = [
+[62.83,23.90],
+[62.83,25.90],
+[62.83,27.81],
+[62.83,29.80]
+];
+*/
+/*socketList = [ //1/4 inch drive deep sockets Quinn set Imperial
+[50,12.00],
+[50,12.00],
+[50,12.00],
+[50,12.00],
+[50,12.00],
+//[50,13.25],
+//[50,14.80],
+//[50,15.95],
+//[50,17.95],
+//[50,20.00]
+];*/
+
+/*socketList = [ //1/2 inch drive deep sockets Quinn set Metric
+/*[77.00,22.20],
+[77.00,22.20],
+[77.00,22.20],
+[77.00,22,20],
+[77.00,24.10],
+];
+[77.00,26.00],
+[77.00,26.10],
+[77.00,27.90],
+[77.00,30.00],
+[77.00,32.00]
+];
+*/
+
+/*socketList =[ //3/8 inch drive deep sockets Quinn set Metric
+[63.25,17.00],
+[63.25,17.00],
+[63.25,18.00],
+[63.25,18.00],
+[63.25,20.00]
+];*/
+/*socketList = [ 
+[63.25,22.00],
+[63.25,22.00],
+[63.25,24.10],
+[63.25,26.00],
+[63.25,26.00]
+];*/
+/*
+socketList = [ //1/4 inch drive deep sockets Quinn set Metric
+[50,12.05],
+[50,12.05],
+[50,12.05],
+[50,12.05],
+[50,12.05],
+];*/
+/*socketList = [
+[50,13.50],
+[50,14.00],
+[50,16.00],
+[50,17.00],
+[50,18.10],
+[50,20.00]
+];*/
+/*socketList = [ //sparkPlug Sockets 1/2 & 3/8
+[65.10,22.10],
+[65.10,22.10],
+[65.10,28.00],
+[65.10,28.00]
+];*/
 
 inch = false;
 function inchToMM(x) = x*25.4;
@@ -40,7 +111,6 @@ function sumVec(v, i=0, r=0, index=0) = i < len(v) ? sumVec(v, i+1, r+v[i][index
 function maxVec(v, i=0, index=0) = i < len(v)?
     v[i][index] > maxVec(v, i+1, index)? v[i][index]: maxVec(v, i+1,index):0;
     
-
 module Sockets(socketSizes, inch = true){
 
 module Socket(length,diameter){
@@ -73,7 +143,6 @@ TotalWidth = sumVec(socketList, index = 1)+(offset*(len(socketList)-1))+(borderS
 MaxLength = maxVec(socketList, index = 0);
 MaxThickness = maxVec(socketList, index =1);
 echo (TotalWidth);
-
 
 difference()
 {
