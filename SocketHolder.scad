@@ -3,7 +3,8 @@ borderSides=.8;
 offset = 1.5;
 slantOffset =2.1;
 oversize=0.1;
-SocketSelecter = 1;
+selectParm = 1;
+SocketSelecter = selectParm;
 socketList = 
 SocketSelecter==1? [ //1/2 inch drive deep sockets Quinn set Imperial
 [76.2,22.098],
@@ -136,7 +137,7 @@ for(a = [0 : len(socketSizes) - 1 ])
 TotalWidth = sumVec(socketList, index = 1)+(offset*(len(socketList)-1))+(borderSides*2);
 MaxLength = maxVec(socketList, index = 0);
 MaxThickness = maxVec(socketList, index =1);
-
+echo(socketList);
 difference()
 {
 cube(size = [TotalWidth+borderSides*2, MaxLength+borderTop*2+slantOffset, MaxThickness/2+5]);
@@ -159,4 +160,4 @@ for(a=[0:4])
             }
          }
      }
-}
+};
