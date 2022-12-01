@@ -1,105 +1,99 @@
 borderTop = 1.5;
 borderSides=.8;
-offset = 1;
-Thinner = 10;
+offset = 1.5;
 slantOffset =2.1;
 oversize=0.1;
-
-/*socketList = [ //1/2 inch drive deep sockets Quinn set Imperial
+SocketSelecter = 1;
+socketList = 
+SocketSelecter==1? [ //1/2 inch drive deep sockets Quinn set Imperial
 [76.2,22.098],
 [76.2,22.098],
 [76.2,22.352],
 [76.2,24.0284],
-[76.2,26.035],
-];
-*/
-socketList = [
+[76.2,26.035]]
+: 
+SocketSelecter==2? [
 [76.2,27.94],
 [76.2,29.845],
 [76.2,31.877],
 [76.2,33.8582],
-];
-
-/*
-socketList = [ //3/8 inch drive deep sockets Quinn set Imperial
+]:
+SocketSelecter==3? [ //3/8 inch drive deep sockets Quinn set Imperial
 [62.83,17.00],
 [62.83,17.00],
 [62.83,17.90],
 [62.83,19.88],
 [62.83,21.80],
-];
-/*
-socketList = [
+]:
+SocketSelecter==4?[
 [62.83,23.90],
 [62.83,25.90],
 [62.83,27.81],
 [62.83,29.80]
-];
-*/
-/*socketList = [ //1/4 inch drive deep sockets Quinn set Imperial
+]:
+SocketSelecter==5? [ //1/4 inch drive deep sockets Quinn set Imperial
 [50,12.00],
 [50,12.00],
 [50,12.00],
 [50,12.00],
 [50,12.00],
-//[50,13.25],
-//[50,14.80],
-//[50,15.95],
-//[50,17.95],
-//[50,20.00]
-];*/
-
-/*socketList = [ //1/2 inch drive deep sockets Quinn set Metric
-/*[77.00,22.20],
+]:
+SocketSelecter==6?[ 
+[50,13.25],
+[50,14.80],
+[50,15.95],
+[50,17.95],
+[50,20.00]
+]:
+SocketSelecter==7?[ //1/2 inch drive deep sockets Quinn set Metric
+[77.00,22.20],
 [77.00,22.20],
 [77.00,22.20],
 [77.00,22,20],
 [77.00,24.10],
-];
+]:
+SocketSelecter==8?[
 [77.00,26.00],
 [77.00,26.10],
 [77.00,27.90],
 [77.00,30.00],
 [77.00,32.00]
-];
-*/
-
-/*socketList =[ //3/8 inch drive deep sockets Quinn set Metric
+]:
+SocketSelecter==9?[ //3/8 inch drive deep sockets Quinn set Metric
 [63.25,17.00],
 [63.25,17.00],
 [63.25,18.00],
 [63.25,18.00],
 [63.25,20.00]
-];*/
-/*socketList = [ 
+]: 
+SocketSelecter==8?[
 [63.25,22.00],
 [63.25,22.00],
 [63.25,24.10],
 [63.25,26.00],
 [63.25,26.00]
-];*/
-/*
-socketList = [ //1/4 inch drive deep sockets Quinn set Metric
+]:
+SocketSelecter==9?[//1/4 inch drive deep sockets Quinn set Metric
 [50,12.05],
 [50,12.05],
 [50,12.05],
 [50,12.05],
 [50,12.05],
-];*/
-/*socketList = [
+]:
+SocketSelecter==10?[
 [50,13.50],
 [50,14.00],
 [50,16.00],
 [50,17.00],
 [50,18.10],
 [50,20.00]
-];*/
-/*socketList = [ //sparkPlug Sockets 1/2 & 3/8
+]:
+SocketSelecter==11?[//sparkPlug Sockets 1/2 & 3/8
 [65.10,22.10],
 [65.10,22.10],
 [65.10,28.00],
 [65.10,28.00]
-];*/
+]:0;
 
 inch = false;
 function inchToMM(x) = x*25.4;
@@ -142,18 +136,17 @@ for(a = [0 : len(socketSizes) - 1 ])
 TotalWidth = sumVec(socketList, index = 1)+(offset*(len(socketList)-1))+(borderSides*2);
 MaxLength = maxVec(socketList, index = 0);
 MaxThickness = maxVec(socketList, index =1);
-echo (TotalWidth);
 
 difference()
 {
-cube(size = [TotalWidth+borderSides*2, MaxLength+borderTop*2+slantOffset, MaxThickness-Thinner]);
-translate([borderSides,borderTop+slantOffset,MaxThickness-Thinner]){
+cube(size = [TotalWidth+borderSides*2, MaxLength+borderTop*2+slantOffset, MaxThickness/2+5]);
+translate([borderSides,borderTop+slantOffset,MaxThickness/2+5]){
 rotate([-90,0,0])
 {
     Sockets(socketList, false);
     }
 }
-translate([borderSides,borderTop,MaxThickness-(Thinner+5)])
+translate([borderSides,borderTop,MaxThickness/2])
 {
 for(a=[0:4])
     {
@@ -167,5 +160,3 @@ for(a=[0:4])
          }
      }
 }
-
-

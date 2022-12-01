@@ -1,0 +1,1 @@
+"C:\Program Files\OpenSCAD\openscad.exe" -o test.stl -D 'SocketSelecter=1' SocketHolder.scad
