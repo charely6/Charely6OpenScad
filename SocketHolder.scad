@@ -109,26 +109,40 @@ function maxVec(v, i=0, index=0) = i < len(v)?
     v[i][index] > maxVec(v, i+1, index)? v[i][index]: maxVec(v, i+1,index):0;
     
 module Sockets(socketSizes, inch = true){
-
 module Socket(length,diameter){
-    cylinder(length,d=diameter+oversize, $fn=90);
-            
+    cylinder(length,d=diameter+oversize, $fn=90);           
 }
-
-
 function offsetTotal(set, a) = a==0 ? set[0][1]+oversize : set[a][1]+oversize + offsetTotal(set,a-1);
     
 for(a = [0 : len(socketSizes) - 1 ])
 {
-
         translate([(offsetTotal(socketSizes,a)-(socketSizes[a][1]+oversize)/2)+ (offset*a)+borderSides,0,0]){
             Socket(socketSizes[a][0],socketSizes[a][1]);
-        }
+        }   
+}
+
+}
+
+
+module SocketsSlant(socketSizes, inch = true){
+module Socket(length,diameter){
+    cylinder(length,d=diameter+oversize, $fn=90);           
+}
+function offsetTotal(set, a) = a==0 ? set[0][1]+oversize : set[a][1]+oversize + offsetTotal(set,a-1);
     
+for(a = [0 : len(socketSizes) - 1 ])
+{
+    hull(){
+    for(b=[0:1])
+    {
+        translate([(offsetTotal(socketSizes,a)-(socketSizes[a][1]+oversize)/2)+ (offset*a)+borderSides,-b*10,0]){
+            Socket(socketSizes[a][0],socketSizes[a][1]);
+        }   
+    }
+}
 }
 
 }
-
 
 TotalWidth = sumVec(socketList, index = 1)+((offset)*(len(socketList)))+(borderSides*2)+oversize*len(socketList);
 MaxLength = maxVec(socketList, index = 0);
@@ -146,15 +160,16 @@ rotate([-90,0,0])
 }
 translate([borderSides,borderTop,MaxThickness/2+slantThickness-5])
 {
-for(a=[0:4])
     {
-    rotate([-80,0,0])
         {
-            translate([0,-a,0])
+            rotate([-80,0,0])
             {
-                Sockets(socketList, false);
+                translate([0,0,0])
+                {
+                    SocketsSlant(socketList, false);
                 }
             }
          }
      }
+ }
 };
