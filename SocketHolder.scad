@@ -1,12 +1,13 @@
-borderTop = 1.5;
-borderSides=.8;
-offset = 1.5;
-slantOffset =2.1;
-slantThickness=6;
-oversize=10;
-selectParm = 1;
+borderTop = 1.5;//approximate thickness of the top/bottom border (not exact due to slate stuff)
+borderSides=.8; // approximate thickness of the side borders
+offset = 1.5; // approximate distance between the sockets (seting to zero can cause sockets overlapping openscad doesn't like that)
+slantOffset =2.5; //manually coded lengthening to account for the slant being taller than the sockets if there are knotches in the end of the socket holes increase this to length the whole thing until they go away
+slantThickness=6; // manually coded approximate thickness for the slant below the socket regular base. If for some reason you want the bottom of a slant to be thicker increase this ( I did for my vase mode hacking)
+oversize=0.5; // manually coded oversize value if your printer undersizes stuff you could bump this up to account for it. this only oversizes the diameters
+selectParm = 1; // select parameter for CLI interface
 SocketSelecter = selectParm;
-socketList = 
+socketList =  //this is the list of actual socket sizes Yes this selection thing looks like a weird mess I couldn't figure out how to do this with regular if statements so this is what I made (seems to work though) if you want to add more you should be able to duplicate and entry from SocketSelector to ]: and put it between the ending : and 0
+//If you don't want to deal with this "garbarge" I made you can add -D "socketList = [[50,20],[50,15]]" in a command line run of it.
 SocketSelecter==1? [ //1/2 inch drive deep sockets Quinn set Imperial
 [76.2,22.098],
 [76.2,22.098],
