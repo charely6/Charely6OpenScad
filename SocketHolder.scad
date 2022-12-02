@@ -4,10 +4,17 @@ offset = 1.5; // approximate distance between the sockets (seting to zero can ca
 slantOffset =2.5; //manually coded lengthening to account for the slant being taller than the sockets if there are knotches in the end of the socket holes increase this to length the whole thing until they go away
 slantThickness=6; // manually coded approximate thickness for the slant below the socket regular base. If for some reason you want the bottom of a slant to be thicker increase this ( I did for my vase mode hacking)
 oversize=0.5; // manually coded oversize value if your printer undersizes stuff you could bump this up to account for it. this only oversizes the diameters
-selectParm = 1; // select parameter for CLI interface
+
+socketListInch = 0;
+
+selectParm = socketListInch==0? 1: 0; // select parameter for CLI interface
 SocketSelecter = selectParm;
+
 socketList =  //this is the list of actual socket sizes Yes this selection thing looks like a weird mess I couldn't figure out how to do this with regular if statements so this is what I made (seems to work though) if you want to add more you should be able to duplicate and entry from SocketSelector to ]: and put it between the ending : and 0
 //If you don't want to deal with this "garbarge" I made you can add -D "socketList = [[50,20],[50,15]]" in a command line run of it.
+SocketSelecter==0? 
+vecInchToMM(socketListInch)
+: 
 SocketSelecter==1? [ //1/2 inch drive deep sockets Quinn set Imperial
 [76.2,22.098],
 [76.2,22.098],
@@ -100,7 +107,7 @@ SocketSelecter==13?[//sparkPlug Sockets 1/2 & 3/8
 
 inch = false;
 function inchToMM(x) = x*25.4;
-
+function vecInchToMM(x)=[ for(vec = x)[inchToMM(vec[0]),inchToMM(vec[1])]];
 function sum(v, i=0, r=0) = i < len(v) ? SUM(v, i+1, r+v[i]) :r;
 
 function sumVec(v, i=0, r=0, index=0) = i < len(v) ? sumVec(v, i+1, r+v[i][index], index) :r;
