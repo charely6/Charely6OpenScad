@@ -2,6 +2,14 @@
 My OpenScad Projects
 Place to put my OpenScad projects as I make them.
 
+## CableHolder
+working on a wall mounted cableholer for beefy cables (display or tower power) this is my current version
+
+
+## MakeupHolder
+someone on reddit wanted one of those rubbery makeup or whatever holders built into gridfinity and someone else mentioned it could be done in openscad and I got carried away
+
+
 ## SocketHolder
 This is custom socket holder. Mostly for Deepwell sockets I guess it could be used for shallow ones but I didn't really design it for that.
 
