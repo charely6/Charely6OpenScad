@@ -9,5 +9,5 @@ jobs:
     - name: Build stl file
       uses: flat35hd99/openscad-actions@v1.4
       with:
-        scad_file: cableHolder.scad
-        output_file: cableHolder.stl
+        scad_file: ./cableHolder.scad
+        output_file: ./stls/cableHolder.stl
