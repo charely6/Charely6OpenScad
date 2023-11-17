@@ -6,13 +6,13 @@ jobs:
     steps:
     - name: Setup
       uses: actions/checkout@v3
-    - name: Build stl file
+    - name: Build stl files
       uses: eXpire163/openscad-actions@main
       with:
         scad_file: ./
         output_file: ./stls/
         target_format_for_bulk: stl
-    - name: Build png file
+    - name: Build png files
       uses: eXpire163/openscad-actions@main
       with:
         scad_file: ./
