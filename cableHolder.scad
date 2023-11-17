@@ -1,24 +1,31 @@
 module cableHole() {
 translate ([0,0,5])
-cylinder (d1=6, d2=18,h=11,$fn=20,center=true) ;
-cylinder (d=7.5, h=11,$fn=20, center =true );
+cylinder (d1=6, d2=20,h=12,$fn=20,center=true) ;
+cylinder (d=7.5, h=15,$fn=20, center =true );
 translate ([0,5,2.5])
-cube ([7.5,10,20], center =true );
+cube ([7.5,10,18], center =true );
 }
+halfWidth=80;
 difference () {
 hull() {
-translate ([70,0,0])
-cylinder (d1=10,d2=30,h=15,center=true);
-translate ([-70,0,0])
-cylinder (d1=10,d2=30,h=15,center=true);
+translate ([halfWidth,0,0])
+cylinder (d1=10,d2=30,h=17,center=true);
+translate ([-halfWidth,0,0])
+cylinder (d1=10,d2=30,h=17,center=true);
 } 
-translate ([0,-15, 0])
+hull(){
+    translate ([halfWidth,0,8.5])
+    cylinder(d1=28, d2=30, h=3, center=true);
+    translate ([-halfWidth,0,8.5])
+    cylinder(d1=28, d2=30, h=3, center=true);
+}
+translate ([0,-17, 0])
 cube ([200,20,20], center =true );
-for(i=[-3:3]){
-translate ([i*20,5,-2.5])
+for(i=[-2:2]){
+translate ([i*33,5,-2.5])
 cableHole ();
 }
-translate ([70,0,0])
+translate ([halfWidth,0,0])
 rotate ([-90,0,0]){
 union () {
 translate ([0,0,10])
@@ -26,7 +33,7 @@ cylinder (d=9,h=10,center =true) ;
 cylinder (d=5,h=30,center =true) ;
 } 
 } 
-translate ([-70,0,0])
+translate ([-halfWidth,0,0])
 rotate ([-90,0,0]){
 union() {
 translate ([0,0,10])
@@ -35,7 +42,7 @@ cylinder (d=5,h=30,center =true) ;
 } 
 } 
 }
-echo("test");
+
 
 
 
