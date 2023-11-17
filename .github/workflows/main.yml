@@ -14,5 +14,5 @@ jobs:
     - name: Upload stl file as artifact
       uses: EndBug/add-and-commit@v9
       with:
-        message :test
+        message: test
     
