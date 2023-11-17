@@ -14,5 +14,4 @@ jobs:
     - name: Upload stl file as artifact
       uses: actions/upload-artifact@v2
       with:
-        name: built_stl
-        path: ./stls/cableHolder.stl
+        path: ./stls/
