@@ -5,21 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Setup
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
     - name: Build stl file
       uses: eXpire163/openscad-actions@main
       with:
         scad_file: ./
         output_file: ./stls/
         target_format_for_bulk: stl
-    - name: Upload stl file
-      uses: EndBug/add-and-commit@v9
+    - uses: EndBug/add-and-commit@v9
       with:
-        message: test
-        add: '*'
-        cwd: './stls'
         default_author: github_actions
-    - name: artifact
-      uses: actions/upload-artifact@v3
-      with:
-        path: ./stls/
