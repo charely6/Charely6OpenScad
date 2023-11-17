@@ -11,6 +11,7 @@ jobs:
       with:
         scad_file: ./
         output_file: ./stls/
+        target_format_for_bulk: stl
     - name: artifact
       uses: actions/upload-artifact@v3
       with:
