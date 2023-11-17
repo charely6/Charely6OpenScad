@@ -5,6 +5,8 @@ cylinder (d=7.5, h=15,$fn=20, center =true );
 translate ([0,5,2.5])
 cube ([7.5,10,18], center =true );
 }
+$vpr = [65,0,145];
+$vpd = 500;
 halfWidth=80;
 difference () {
 hull() {
