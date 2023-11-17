@@ -10,9 +10,9 @@ gapThickness = 1;
 module repeatCircle() {
 difference () {
 cylinder(d=circleDiameter,h=circleHeight, center =true, $fn=detailLevel);
-cylinder(d=circleDiameter-2*circleThickness,h=circleHeight, center =true, $fn= detailLevel) ;
+cylinder(d=circleDiameter-2*circleThickness,h=circleHeight+1, center =true, $fn= detailLevel) ;
 rotate ([0, 0, 45])
-cube([gapThickness ,circleDiameter, circleHeight], center =true);
+cube([gapThickness ,circleDiameter, circleHeight+1], center =true);
 }
 } 
   union() {

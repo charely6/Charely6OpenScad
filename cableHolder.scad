@@ -1,9 +1,9 @@
 module cableHole() {
 translate ([0,0,5])
-cylinder (d1=6, d2=18,h=10,$fn=20,center=true) ;
-cylinder (d=7.5, h=10,$fn=20, center =true );
+cylinder (d1=6, d2=18,h=11,$fn=20,center=true) ;
+cylinder (d=7.5, h=11,$fn=20, center =true );
 translate ([0,5,2.5])
-cube ([7.5,10,15], center =true );
+cube ([7.5,10,20], center =true );
 }
 difference () {
 hull() {
