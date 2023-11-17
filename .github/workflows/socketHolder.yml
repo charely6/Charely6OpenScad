@@ -1,4 +1,4 @@
-name: stlBuilder
+name: socketHolderBuilder
 on: workflow_dispatch
 jobs:
   cableHolder:
