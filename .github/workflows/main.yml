@@ -7,18 +7,17 @@ jobs:
     - name: Setup
       uses: actions/checkout@v4
     - name: Build stl file
-      uses: flat35hd99/openscad-actions@v1.4
+      uses: eXpire163/openscad-actions@main
       with:
-        scad_file: cableHolder.scad
-        output_file: cableHolder.stl
+        scad_file: ./
+        output_file: ./stls/
     - name: artifact
       uses: actions/upload-artifact@v3
       with:
-        path: cableHolder.stl
-        if-no-files-found: error
+        path: ./stls/
     - name: Upload stl file
       uses: EndBug/add-and-commit@v9
       with:
         message: test
-        add: '*.stl'
+        add: './stls'
     
