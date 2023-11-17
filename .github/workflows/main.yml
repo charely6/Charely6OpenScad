@@ -5,14 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Setup
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Build stl file
       uses: flat35hd99/openscad-actions@v1.4
       with:
         scad_file: ./cableHolder.scad
         output_file: ./stls/cableHolder.stl
-    - uses: actions/upload-artifact@v2
+    - name: Upload stl file as artifact
+      uses: actions/upload-artifact@v2
       with:
-        name: save_stl
+        name: built_stl
         path: ./stls/cableHolder.stl
-        default_author: github_actions
