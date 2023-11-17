@@ -9,8 +9,8 @@ jobs:
     - name: Build stl file
       uses: eXpire163/openscad-actions@main
       with:
-        scad_file: ./*.scad
-        output_file: ./stls/*.stl
+        scad_file: ./
+        output_file: ./stls/
         target_format_for_bulk: stl
     - name: artifact
       uses: actions/upload-artifact@v3
