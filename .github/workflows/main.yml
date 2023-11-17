@@ -13,9 +13,9 @@ jobs:
         output_file: cableHolder.stl
     - name: artifact
       uses: actions/upload-artifact@v3
-        with:
-          path: stls/cableHolder.stl
-          if-no-files-found: error
+      with:
+        path: stls/cableHolder.stl
+        if-no-files-found: error
     - name: Upload stl file
       uses: EndBug/add-and-commit@v9
       with:
