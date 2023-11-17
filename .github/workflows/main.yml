@@ -14,5 +14,5 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: save_stl
-        path: ./stls/cableHolder.sh
+        path: ./stls/cableHolder.stl
         default_author: github_actions
