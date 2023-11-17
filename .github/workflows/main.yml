@@ -10,8 +10,13 @@ jobs:
       uses: flat35hd99/openscad-actions@v1.4
       with:
         scad_file: cableHolder.scad
-        output_file: stls/cableHolder.stl
-    - name: Upload stl file as artifact
+        output_file: cableHolder.stl
+    - name: artifact
+      uses: actions/upload-artifact@v3
+        with:
+          path: stls/cableHolder.stl
+          if-no-files-found: error
+    - name: Upload stl file
       uses: EndBug/add-and-commit@v9
       with:
         message: test
