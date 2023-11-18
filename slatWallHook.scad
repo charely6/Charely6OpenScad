@@ -18,8 +18,8 @@ for(i=[0:numberOfHoles-1]){
 translate([depthOfHook+thicknessOfHook,lengthOfBar-i*12-thicknessOfHook,0])
 hole();
 }
-translate ([depthOfHook/2+7, 18+54,0]) 
-cube ([7,35, widthOfHook],center =true ) ;
+translate ([depthOfHook/2+7, 18+54+12,0]) 
+cube ([7,50, widthOfHook],center =true ) ;
 }
 
 
