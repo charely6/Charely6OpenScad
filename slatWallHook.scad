@@ -1,7 +1,7 @@
 widthOfHook = 20;
 thicknessOfHook=3;
 depthOfHook = 10;
-lengthOfBar =100;
+lengthOfBar =140;
 numberOfHoles = 3;
 difference()
 {
@@ -18,6 +18,8 @@ for(i=[0:numberOfHoles-1]){
 translate([depthOfHook+thicknessOfHook,lengthOfBar-i*12-thicknessOfHook,0])
 hole();
 }
+translate ([depthOfHook/2+4, 18+54,0]) 
+cube ([2,30, widthOfHook],center =true ) ;
 }
 
 
