@@ -1,5 +1,8 @@
 name: stlBuilder
-on: push
+on: 
+  push:
+    paths:
+      - './*.scad'
 jobs:
   cableHolder:
     runs-on: ubuntu-latest
