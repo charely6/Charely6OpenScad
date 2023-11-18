@@ -19,7 +19,7 @@ translate([depthOfHook+thicknessOfHook,lengthOfBar-i*12-thicknessOfHook,0])
 hole();
 }
 translate ([depthOfHook/2+7, 18+54,0]) 
-cube ([7,32, widthOfHook],center =true ) ;
+cube ([7,35, widthOfHook],center =true ) ;
 }
 
 
